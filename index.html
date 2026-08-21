@@ -4,13 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-image: url('./bg.gif');
+            background-size: cover; 
+        }
+    </style>
 </head>
 <body>
+      <div
+    style="position: absolute; width: 100%; display: flex; backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.125); color: #fff; justify-content: space-between; gap: 32px;border-radius: 16px">
+        <p
+          style="margin-left: 16px; background-color: rgba(256, 256, 256, 0.125); padding: 4px 12px; border-radius: 16px;">
+            Hexa_WebOS
+        </p>
+        <p style="margin-left: 16px; background-color: rgba(256, 256, 256, 0.25); padding: 4px 12px; border-radius: 16px;">
+         Building <i>thoughtful</i> software
+        </p>
+        <p
+            id="timeElement"
+            style="margin-right: 16px; background-color: rgba(256, 256, 256, 0.125); padding: 4px 12px; border-radius: 16px;">
+            Time
+        </p>
+  </div>
      <div style="border: solid; width:300px; border-radius: 16px; position: absolute; top: 50%; left: 50%; 
-transform: translate(-50%, -50%); padding: 20px;">
+transform: translate(-50%, -50%); padding: 20px; color:#fff">
         <h1>Hexa-Programmer</h1>
         Programmer building software, OSS tools, and products that solve real problems.
         Exploring new ideas, shipping fast, and working towards the next big thing
-    </div>
+     </div>
+    <script>
+        var currentTime = new Date().toLocaleString();
+        var timeText = document.querySelector("#timeElement");
+        timeText.innerHTML = currentTime
+        setInterval(function () {
+        document.querySelector("#timeElement").innerHTML = new Date().toLocaleString();
+        }, 1000);
+    </script>
 </body>
 </html>
