@@ -83,7 +83,16 @@ hexaNotesApp.addEventListener("click", function () {
     }
     hexaNotesApp.classList.add("selected");
     selectedIcon = hexaNotesApp;
+    
+    openWindow(notesWindow);
   }
 });
 
+
 dragElement(document.querySelector("#noteswindow"));
+var notesWindow = document.querySelector("#noteswindow");
+var notesCloseBtn = document.querySelector("#notesclose");
+
+notesCloseBtn.addEventListener("click", function () {
+  closeWindow(notesWindow);
+});

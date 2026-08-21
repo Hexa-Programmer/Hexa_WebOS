@@ -136,12 +136,19 @@
             cursor: pointer;
         }
 
+        .closebutton {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ff5f56;
+            cursor: pointer;
+        }
         .window {
             position: absolute;
             border-radius: 16px;
             background-color: rgba(20, 20, 24, 0.65);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            display: flex;
+            display: none; 
             flex-direction: column;
             overflow: hidden;
         }
@@ -155,14 +162,6 @@
             cursor: grab;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             background: rgba(255, 255, 255, 0.04);
-        }
-
-        .closebutton {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ff5f56;
-            cursor: pointer;
         }
 
         .headertext {
@@ -180,6 +179,7 @@
             height: 420px;
             padding: 16px;
         }
+
     </style>
 </head>
 <body>
