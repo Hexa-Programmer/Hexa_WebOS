@@ -69,3 +69,21 @@ function dragElement(element) {
     document.onmousemove = null;
   }
 }
+
+var selectedIcon = undefined;
+var hexaNotesApp = document.querySelector("#HexaNotes");
+
+hexaNotesApp.addEventListener("click", function () {
+  if (selectedIcon === hexaNotesApp) {
+    hexaNotesApp.classList.remove("selected");
+    selectedIcon = undefined;
+  } else {
+    if (selectedIcon) {
+      selectedIcon.classList.remove("selected");
+    }
+    hexaNotesApp.classList.add("selected");
+    selectedIcon = hexaNotesApp;
+  }
+});
+
+dragElement(document.querySelector("#noteswindow"));

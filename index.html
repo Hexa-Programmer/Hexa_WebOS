@@ -32,21 +32,25 @@
             align-items: center;
             padding: 8px 16px;
             background: rgba(18, 18, 18, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 24px;
             font-size: 13px;
-            font-weight: 500;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            font-weight: 500;   
         }
 
-        .badge {
+        .welcome {
             background: rgba(255, 255, 255, 0.12);
             padding: 4px 12px;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             cursor: pointer;
+        }
+
+        .time {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 4px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .window-card {
@@ -55,11 +59,8 @@
             top: calc(50% - 140px);
             left: calc(50% - 180px);
             background: rgba(20, 20, 24, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -96,8 +97,8 @@
             cursor: pointer; 
         }
         
-        .dot.yellow { background-color: #ffbd2e; }
-        .dot.green { background-color: #27c93f; }
+        .dot.blue { background-color: #00bbff; }
+        .dot.purple { background-color: rgb(175, 16, 184); }
 
         .window-title {
             font-size: 12px;
@@ -123,23 +124,78 @@
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.78);
         }
+
+        .selected {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            width: min-content;
+            cursor: pointer;
+        }
+
+        #HexaNotes {
+            cursor: pointer;
+        }
+
+        .window {
+            position: absolute;
+            border-radius: 16px;
+            background-color: rgba(20, 20, 24, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .windowheader {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            cursor: grab;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .closebutton {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ff5f56;
+            cursor: pointer;
+        }
+
+        .headertext {
+            margin: 0px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .HexaNotes_Window {
+            background-color: rgba(242, 0, 255, 0.219);
+            margin: 6px;
+            border-radius: 12px;
+            width: 520px;
+            height: 420px;
+            padding: 16px;
+        }
     </style>
 </head>
 <body>
 
     <div class="taskbar">
-        <span class="badge" id="windowopen">Hexa_WebOS</span>
+        <span class="welcome" id="windowopen">Hexa_WebOS</span>
         <span style="font-family: serif; font-size: 15px;">Building <i>thoughtful</i> software</span>
-        <span class="badge" id="timeElement">Time</span>
+        <span class="time" id="timeElement">Time</span>
     </div>
 
     <div id="window" class="window-card">
         <div id="windowheader" class="window-header">
             <div class="window-dots">
-
                 <span id="windowclose" class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+                <span class="dot purple"></span>
+                <span class="dot blue"></span>
             </div>
             <span class="window-title">About Me</span>
         </div>
@@ -151,11 +207,28 @@
             </p>
         </div>
     </div>
+
     <div id="desktopApps" style="padding-top: 64px;">
-            <div style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+        <div id="HexaNotes">
             <img src="./hexanotes.png" style="width: 64px; height: 64px; border-radius: 16px;">
-            <p style="margin: 0px; color: #fff; ">HexaNotes</p>
+            <p style="margin: 0px; color: #fff;">HexaNotes</p>
+        </div>
+    </div>
+
+    <div class="window" id="noteswindow" style="top: calc(50% - 240px); left: calc(50% - 260px);">
+        <div class="windowheader" id="noteswindowheader">
+            <div class="window-dots">
+                <span id="notesclose" class="dot red"></span>
+                <span class="dot purple"></span>
+                <span class="dot blue"></span>
             </div>
+            <p class="headertext">Notes</p>
+            <div style="width: 12px; margin-right: 6px; height: 12px;"></div>
+        </div>
+
+        <div class="HexaNotes_Window">
+            <p>HexaNotes</p>
+        </div>
     </div>
 
     <script src="script.js"></script>
